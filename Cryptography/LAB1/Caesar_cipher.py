@@ -3,11 +3,11 @@ def get_message_for_encryption(message:str):
 
     clean_message = ""
     for char in message:
-        if char.isalpha():
+        if char.isalpha() or char == ' ':
             clean_message += char
 
     if len(clean_message) != len(message):
-        print("Use characters A-Z or a-z!")
+        return "Use characters A-Z or a-z!"
 
     return clean_message
 
@@ -35,8 +35,9 @@ def decrypt_message(message:str, shift:int):
 
 
 secret = get_message_for_encryption(str(input("Enter the secret message: ")))
-
 shift = int(input("Enter the shift value: "))
+if (shift < 1) or (shift > 25) or (secret == 'Use characters A-Z or a-z!'):
+    exit("Invalid input")
 operation_choice = int(input("Enter the operation choice: \n[1] encryption \n[2] decryption \n[3] both\n-->"))
 if operation_choice == 1:
     print(f"Encrypted message:")

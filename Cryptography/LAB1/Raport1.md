@@ -1,4 +1,4 @@
-### Laboratory Work: Classical Cryptography – Caesar Cipher (1-key and 2-keys)
+### Laboratory Work 1: Classical Cryptography – Caesar Cipher (1-key and 2-keys)
 
 **Course**: Criptography and Security  
 **Author**: Mihalevschi Alexandra

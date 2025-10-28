@@ -5,11 +5,11 @@ def get_message_for_encryption(message:str):
 
     clean_message = ""
     for char in message:
-        if char.isalpha():
+        if char.isalpha() or char == ' ':
             clean_message += char
 
     if len(clean_message) != len(message):
-        print("Use characters A-Z or a-z!")
+        return "Use characters A-Z or a-z!"
 
     return clean_message
 
@@ -43,9 +43,8 @@ secret = get_message_for_encryption(str(input("Enter the secret message: ")))
 
 shift = int(input("Enter the shift value: "))
 word_key = str(input("Enter the 2nd key value: "))
-if len(word_key) < 7:
-    print("The 2nd key must be at least 7 characters long!")
-    exit()
+if len(word_key) < 7 or (shift < 1) or (shift > 25) or (secret == 'Use characters A-Z or a-z!'):
+    exit('Invalid input')
 
 new_alphabet =  update_alphabet(word_key)
 operation_choice = int(input("Enter the operation choice: \n[1] encryption \n[2] decryption \n[3] both\n-->"))
